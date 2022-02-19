@@ -20,7 +20,7 @@ public abstract class Pile implements Drawable, Updateable {
         this.locationY = Y;
     }
 
-    // draw
+    // draw pile
 
     // adds singular card
     public void addCard (Card c) {
