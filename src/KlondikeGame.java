@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class KlondikeGame {
+	
 	//#region vars
 	public static final int DELAY_INTERVAL = 50, INIT_W = 1000, INIT_H = 800;
 	private JFrame frame = new JFrame("Klondike");

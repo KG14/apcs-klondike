@@ -6,12 +6,12 @@ import java.awt.*;
 public class Card implements Drawable, Updateable{
 
     /** represents a playing card that can draw itself. */
-    private enum Color {
+    protected enum Color {
         RED,
         BLACK
     }
 
-    private enum Suit {
+    protected enum Suit {
         HEARTS,
         DIAMONDS,
         SPADES,
@@ -20,7 +20,7 @@ public class Card implements Drawable, Updateable{
 
     private Color color;
     private Suit suit;
-    private int value;
+    private int value; // 1 to 4
     private boolean faceUp = false;
     private Image front;
     private static Image back;

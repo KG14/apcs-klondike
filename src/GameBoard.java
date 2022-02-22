@@ -13,7 +13,6 @@ public class GameBoard implements Drawable, Updateable {
 
 	Image testImage, backImage;
 	public static final int OFFSET_X = 40, OFFSET_Y = 20;
-	
 	 
 	private int numdraws=0;
 	
@@ -41,6 +40,8 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(testImage, 30, 80, null);
 		g.drawImage(backImage, 100, 80, null);
 		g.drawImage(backImage, 105, 100, null);
+		
+		//
 	}
 
 
@@ -62,8 +63,6 @@ public class GameBoard implements Drawable, Updateable {
 	// this update will be called each time the timer in the KlondikeGame
 	// goes off.  This will be convenient for animating.
 	public void update(ActionEvent a) {
-		
-		
 	}
 
 }

@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 /** A Pile is a collection of cards.  This needs to be
  * Drawable because it will be shown on the GUI. Put code
  * here that ALL Piles share.  The ways in which Piles are 
@@ -8,16 +9,21 @@
  */
 public abstract class Pile implements Drawable, Updateable {
     // instance variables
-    private Arraylist <Card> list;
+    protected ArrayList<Card> list;
     private int locationX;
     private int locationY;
     
     // methods:
     // Pile constructor 
-    public Pile (Arraylist <Card> setList, int X, int Y) {
-        this.list = setList;
+    public Pile(int X, int Y) {
         this.locationX = X;
         this.locationY = Y;
+
+        this.list = new ArrayList<>();
+    }
+
+    public Pile() {
+        this(0, 0);
     }
 
     // draw pile
@@ -28,7 +34,7 @@ public abstract class Pile implements Drawable, Updateable {
     }
 
     // adds list of cards
-    public void addCardList (Arraylist <Card> cardList) {
+    public void addCardList (ArrayList <Card> cardList) {
         for (int i = 0; i < cardList.size(); i++) {
             list.add(cardList.get(i));
         }
@@ -41,11 +47,10 @@ public abstract class Pile implements Drawable, Updateable {
     }
 
     // returns specified index card and all cards after, removes all of them from the pile
-    public Arraylist <Card> getListCards (int index) {
-        Arraylist <Card> ans = new Arraylist <Card> ();
+    public ArrayList <Card> getCards (int index) {
+        ArrayList <Card> ans = new ArrayList <>();
         for (int i = index; i < list.size(); i++) {
-            ans.add(list.get(i));
-            list.remove(i);
+            ans.add(list.remove(i));
             i--;
         }
         return ans;
