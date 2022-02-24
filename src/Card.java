@@ -1,6 +1,8 @@
 import javax.imageio.ImageIO;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
 import java.awt.*;
 
 public class Card implements Drawable, Updateable{
@@ -20,7 +22,7 @@ public class Card implements Drawable, Updateable{
 
     private Color color;
     private Suit suit;
-    private int value; // 1 to 4
+    private int value; // 1 to 12
     private boolean faceUp = false;
     private Image front;
     private static Image back;
@@ -31,6 +33,52 @@ public class Card implements Drawable, Updateable{
         this.color = color;
         this.suit = suit;
         this.value = value;
+
+        if (back == null) {
+            openBackImage();
+        }
+    }
+
+    private void openBackImage() {
+        try {
+            File f = new File("../images/b2fv.png");
+            back = ImageIO.read(f);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }  
+    }
+
+    private void openFrontImage() {
+        String filename = "";
+
+        // Add first letter of suit
+        filename += suit.toString().substring(0, 1).toLowerCase();
+
+        // Add first letter of value
+        switch(value) {
+            case 11:
+                filename += "j";
+                break;
+
+            case 12:
+                filename += "q";
+                break;
+
+            case 13:
+                filename += "k";
+                break;
+
+            default:
+                filename += value;
+                break;
+        }
+
+        try {
+            File f = new File("../images/" + filename + ".png");
+            front = ImageIO.read(f);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Color getColor() {
