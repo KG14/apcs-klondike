@@ -56,8 +56,16 @@ public abstract class Pile implements Drawable, Updateable {
         return ans;
     }
 
-    public void deal(Pile other, int ind) {
-        other.addCardList(this.getCards(ind));
+    public Card deal(Pile other, int ind) {
+        if (list.size() == 0) {
+			return null;
+		}
+		Card c = list.remove(0);
+    	return c;
+    }
+
+    public void shuffle() {
+
     }
     
     public abstract boolean canAddCard(Card c);
