@@ -37,6 +37,8 @@ public class Card implements Drawable, Updateable{
         if (back == null) {
             openBackImage();
         }
+
+        openFrontImage();
     }
 
     private void openBackImage() {
@@ -74,7 +76,10 @@ public class Card implements Drawable, Updateable{
         }
 
         try {
-            File f = new File("../images/" + filename + ".png");
+            File f = new File("images/cards/" + filename + ".png");
+            System.out.println(filename);
+            System.out.println("hi");
+            System.out.println("images/cards/" + filename + ".png");
             front = ImageIO.read(f);
         } catch (IOException e) {
             e.printStackTrace();
@@ -93,12 +98,20 @@ public class Card implements Drawable, Updateable{
         return value;
     }
 
+    public void setX(int loc) {
+        x = loc;
+    }
+
+    public void setY(int loc) {
+        y = loc;
+    }
+
     public boolean isFaceUp() {
         return faceUp;
     }
 
     public void draw(Graphics g) {
-
+        g.drawImage(front, x, y, null);
     }
 
     public void update(ActionEvent a) {

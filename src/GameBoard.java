@@ -41,6 +41,10 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(backImage, 100, 80, null);
 		g.drawImage(backImage, 105, 100, null);
 		
+		Card c = new Card(Card.Color.RED, Card.Suit.DIAMONDS, 4);
+		c.setX(200);
+		c.setY(300);
+		c.draw(g);
 		//
 	}
 

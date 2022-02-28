@@ -47,13 +47,17 @@ public abstract class Pile implements Drawable, Updateable {
     }
 
     // returns specified index card and all cards after, removes all of them from the pile
-    public ArrayList <Card> getCards (int index) {
+    public ArrayList <Card> getCards(int index) {
         ArrayList <Card> ans = new ArrayList <>();
         for (int i = index; i < list.size(); i++) {
             ans.add(list.remove(i));
             i--;
         }
         return ans;
+    }
+
+    public void deal(Pile other, int ind) {
+        other.addCardList(this.getCards(ind));
     }
     
     public abstract boolean canAddCard(Card c);
