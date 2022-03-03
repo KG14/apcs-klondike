@@ -77,9 +77,9 @@ public class Card implements Drawable, Updateable{
 
         try {
             File f = new File("images/cards/" + filename + ".png");
-            System.out.println(filename);
-            System.out.println("hi");
-            System.out.println("images/cards/" + filename + ".png");
+            //System.out.println(filename);
+            // System.out.println("hi");
+            // System.out.println("images/cards/" + filename + ".png");
             front = ImageIO.read(f);
         } catch (IOException e) {
             e.printStackTrace();
