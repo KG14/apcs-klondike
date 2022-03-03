@@ -41,6 +41,12 @@ public class Card implements Drawable, Updateable{
         openFrontImage();
     }
 
+    public Card(Color color, Suit suit, int value, int x, int y) {
+        this(color, suit, value);
+        this.x = x;
+        this.y = y;
+    }
+
     private void openBackImage() {
         try {
             File f = new File("../images/b2fv.png");
