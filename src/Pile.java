@@ -1,5 +1,8 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.awt.Graphics;
+
 /** A Pile is a collection of cards.  This needs to be
  * Drawable because it will be shown on the GUI. Put code
  * here that ALL Piles share.  The ways in which Piles are 
@@ -26,7 +29,13 @@ public abstract class Pile implements Drawable, Updateable {
         this(0, 0);
     }
 
-    // draw pile
+    // Generic draw method
+    public void draw(Graphics g) {
+        for (Card c : list) {
+                c.draw(g);
+        }
+        
+    }
 
     // adds singular card
     public void addCard (Card c) {
@@ -65,7 +74,33 @@ public abstract class Pile implements Drawable, Updateable {
     }
 
     public void shuffle() {
+        // Check sizes
+		int size = list.size();
+		if (size < 2) {
+			return;
+		}
 
+		if (size == 2) {
+			double flip = Math.random();
+			if (flip > 0.5) {
+				Collections.swap(list, 0, 1);
+			}
+			return;
+		}
+
+		int ind1, ind2;
+		for (int i = 0; i < size * 2; i++) {
+
+			// Select indexes
+			ind1 = (int) (Math.random() * size);
+			ind2 = (int) (Math.random() * size);
+			while(ind2 == ind1) {
+				ind2 = (int) (Math.random() * size);
+			}
+
+			// Swap elements
+			Collections.swap(list, ind1, ind2);
+		}      
     }
     
     public abstract boolean canAddCard(Card c);
